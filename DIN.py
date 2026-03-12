@@ -7,7 +7,7 @@ def din_attention(query,facts,mask,hidden_units,name="din"):
     :param name:
     :return:[B,E]
     """
-    with tf.variable_scope(name,reuse=tf.AOTO_REUSE):
+    with tf.variable_scope(name,reuse=tf.AUTO_REUSE):
         query=tf.expand_dims(query,axis=1) #[B,E]>[B,1,E]
         seq_len=tf.shape(facts)[1]
         query_tiled=tf.tile(query,[1,seq_len,1]) #[B,1,E]>[B,T,E]
